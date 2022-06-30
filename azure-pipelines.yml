@@ -14,12 +14,18 @@ steps:
     allowTelemetryCollection: true
 
 - task: TerraformCLI@0
+  displayName: Terraform plan
   inputs:
     command: 'plan'
     environmentServiceName: 'Azure for Students(37b4dea3-6a93-4a79-8ac0-b9d72e1c74c4)'
     allowTelemetryCollection: true
 
-
+- task: TerraformCLI@0
+  displayName: Terraform apply
+  inputs:
+    command: 'apply'
+    environmentServiceName: 'Azure for Students(37b4dea3-6a93-4a79-8ac0-b9d72e1c74c4)'
+    allowTelemetryCollection: true
 # - task: TerraformCLI@0
 #   displayName: Terraform Apply
 #   inputs:
