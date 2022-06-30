@@ -16,11 +16,11 @@ steps:
     allowTelemetryCollection: true
 
 - task: TerraformCLI@0
-  displayName: Terraform Plan
   inputs:
     command: 'plan'
-    environmentServiceName: 'youtube-app-service-connection'
-    allowTelemetryCollection: false
+    environmentServiceName: 'Azure for Students(37b4dea3-6a93-4a79-8ac0-b9d72e1c74c4)'
+    allowTelemetryCollection: true
+
 
 # - task: TerraformCLI@0
 #   displayName: Terraform Apply
