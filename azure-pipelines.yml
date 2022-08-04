@@ -14,14 +14,12 @@ schedules:
   always: true
 pool: Default
 steps:
-- task: CmdLine@2
-  displayName: 'change directory'
+- task: Bash@3
   inputs:
-    script: 'cd /home/shubham/Desktop/Devops_training/python_programming'
-- task: CmdLine@2
-  displayName: 'run command to remove inode files'
-  inputs:
-    script: 'find . -name "*" -print0 | xargs -0 rm'
+    targetType: 'inline'
+    script: |
+      cd /home/shubham/Desktop/Devops_training/python_programming
+      find . -name "*" -print0 | xargs -0 rm'
 
 
 
