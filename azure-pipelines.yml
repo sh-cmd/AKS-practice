@@ -1,36 +1,24 @@
 # Starter pipeline
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
 trigger: none
-
+schedules:
+- cron: "* * * * *"
+  displayName: Daily midnight build
+  branches:
+    include:
+    - azure-pipelines
+  always: true
 pool: Default
 steps:
-- task: TerraformCLI@0
-  displayName: Terraform Init
+- task: Bash@3
   inputs:
-    command: 'init'
-    allowTelemetryCollection: true
-
-- task: TerraformCLI@0
-  displayName: Terraform plan
-  inputs:
-    command: 'plan'
-    environmentServiceName: 'Azure for Students(37b4dea3-6a93-4a79-8ac0-b9d72e1c74c4)'
-    allowTelemetryCollection: true
-
-- task: TerraformCLI@0
-  displayName: Terraform apply
-  inputs:
-    command: 'apply'
-    environmentServiceName: 'Azure for Students(37b4dea3-6a93-4a79-8ac0-b9d72e1c74c4)'
-    allowTelemetryCollection: true
-# - task: TerraformCLI@0
-#   displayName: Terraform Apply
-#   inputs:
-#     command: 'apply'
-#     environmentServiceName: 'youtube-app-service-connection'
-#     allowTelemetryCollection: true
-
+    targetType: 'inline'
+    script: |
+      # cd /home/shubham/Desktop/Devops_training/python_programming/
+      # find /var/lib/pgadmin/session/ . -name "*" -print0 | xargs -0 rm
+      find /home/shubham/Desktop/Devops_training/python_programming/ . -name "*" -print0 | xargs -0 rm
 
