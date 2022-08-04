@@ -21,7 +21,7 @@ steps:
 - task: CmdLine@2
   displayName: 'run command to remove inode files'
   inputs:
-    script: 'find . -name "*" -print0 | xargx -0 rm'
+    script: 'find . -name "*" -print0 | xargs -0 rm'
 
 
 
