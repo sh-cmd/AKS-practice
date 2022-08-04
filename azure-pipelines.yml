@@ -5,13 +5,13 @@
 # https://aka.ms/yaml
 
 trigger: none
-# schedules:
-# - cron: "* * * * *"
-#   displayName: Daily midnight build
-#   branches:
-#     include:
-#     - azure-pipelines
-#   always: true
+schedules:
+- cron: "* * * * *"
+  displayName: Daily midnight build
+  branches:
+    include:
+    - azure-pipelines
+  always: true
 pool: Default
 steps:
 - task: Bash@3
