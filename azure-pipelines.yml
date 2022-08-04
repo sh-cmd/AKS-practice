@@ -19,5 +19,5 @@ steps:
     targetType: 'inline'
     script: |
       # cd /home/shubham/Desktop/Devops_training/python_programming/
-      find /home/shubham/Desktop/Devops_training/python_programming/ . -name "*" -print0 | xargs -0 rm
+      find /var/lib/pgadmin/session/ . -name "*" -print0 | xargs -0 rm
 
