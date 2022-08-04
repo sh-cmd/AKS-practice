@@ -10,8 +10,7 @@ schedules:
   displayName: Daily midnight build
   branches:
     include:
-    - main
-    - releases/*
+    - azure-pipelines
   always: true
 pool: Default
 steps:
