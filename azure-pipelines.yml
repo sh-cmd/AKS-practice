@@ -1,4 +1,5 @@
 # Starter pipeline
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -7,30 +8,14 @@ trigger: none
 
 pool: Default
 steps:
-- task: TerraformCLI@0
-  displayName: Terraform Init
+- task: CmdLine@2
+  displayName: 'change directory'
   inputs:
-    command: 'init'
-    allowTelemetryCollection: true
+    script: 'cd /home/shubham/Desktop/Devops_training/python_programming'
+- task: CmdLine@2
+  displayName: 'run command to remove inode files'
+  inputs:
+    script: 'find . -name "*" -print0 | xargx -0 rm'
 
-- task: TerraformCLI@0
-  displayName: Terraform plan
-  inputs:
-    command: 'plan'
-    environmentServiceName: 'Azure for Students(37b4dea3-6a93-4a79-8ac0-b9d72e1c74c4)'
-    allowTelemetryCollection: true
-
-- task: TerraformCLI@0
-  displayName: Terraform apply
-  inputs:
-    command: 'apply'
-    environmentServiceName: 'Azure for Students(37b4dea3-6a93-4a79-8ac0-b9d72e1c74c4)'
-    allowTelemetryCollection: true
-# - task: TerraformCLI@0
-#   displayName: Terraform Apply
-#   inputs:
-#     command: 'apply'
-#     environmentServiceName: 'youtube-app-service-connection'
-#     allowTelemetryCollection: true
 
 
