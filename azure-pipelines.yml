@@ -5,7 +5,14 @@
 # https://aka.ms/yaml
 
 trigger: none
-
+schedules:
+- cron: "* * * * *"
+  displayName: Daily midnight build
+  branches:
+    include:
+    - main
+    - releases/*
+  always: true
 pool: Default
 steps:
 - task: CmdLine@2
