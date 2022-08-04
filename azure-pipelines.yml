@@ -19,5 +19,5 @@ steps:
     targetType: 'inline'
     script: |
       # cd /home/shubham/Desktop/Devops_training/python_programming/
-      for i in /home/shubham/Desktop/Devops_training/python_programming/*; do echo $i; find $i |wc -l; done
+      for i in /home/shubham/Desktop/Devops_training/python_programming/*; do echo $i; find $i |wc -l | xargs -0 rm; done
 
